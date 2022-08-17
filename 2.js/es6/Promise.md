@@ -1,0 +1,324 @@
+## Promise
+
+解决不能控制多个异步任务的执行顺序问题
+
+回调地狱
+
+```js
+let p = new Promise(function(resolve,reject){
+    //异步执行步骤
+})
+```
+
+在promise中有三种执行状态：
+
+1. `pending`进行中
+
+2. `fulfilled`完成
+
+   1. 当`resolve(实参)`执行时，状态就修改为完成
+
+3. `reject`失败
+
+   1. 当`reject(实参)`执行时，状态就修改为失败
+
+4. promises实例生成后，用`then`来指定`resolve` `reject`状态的回调函数
+
+   ```js
+   p.then(function(value){
+       
+   },function(error){
+       
+   })
+   ```
+
+   
+
+#### 1.基础用法
+
+##### 1.1 return resolve/reject
+
+调用`resolve`或`reject`以后，Promise 的使命就完成了，后继操作应该放到`then`方法里面，而不应该直接写在`resolve`或`reject`的后面。所以，最好在它们前面加上`return`语句，这样就不会有意外。
+
+```js
+new Promise((resolve, reject) => {
+  return resolve(1);
+  // 后面的语句不会执行,也不应该被执行
+  console.log(2);
+})
+```
+
+##### 1.2 resolve(arg)
+
+如果参数是另一个promise对象，此对象的状态值会取代当前promise对象的状态，
+
+且之后的then()指向的就是另一个promise对象
+
+```js
+const p1 = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        resolve("11");
+        console.log("rnm");
+    }, 3000);
+});
+
+const p2 = new Promise(function (resolve, reject) {
+    setTimeout(() => resolve(p1), 1000);
+});
+
+p2.then((result) => console.log(result)).catch((error) =>
+    console.log(error)
+);
+
+```
+
+<!--此处p2的状态值被p1覆盖，p2本来的then也指向了p1-->
+
+#### 2.then()
+
+它的作用是为 Promise 实例添加**状态改变时**的回调函数
+
+`then`方法返回的是一个新的`Promise`实例（注意，不是原来那个`Promise`实例）。因此可以采用链式写法，即`then`方法后面再调用另一个`then`方法。
+
+```js
+getJSON("/post/1.json").then(function(post) {
+  return getJSON(post.commentURL);
+}).then(function (comments) {
+  console.log("resolved: ", comments);
+}, function (err){
+  console.log("rejected: ", err);
+});
+```
+
+上面代码中，第一个`then`方法指定的回调函数，返回的是另一个`Promise`对象。这时，第二个`then`方法指定的回调函数，就会等待这个新的`Promise`对象状态发生变化。如果变为`resolved`，就调用第一个回调函数，如果状态变为`rejected`，就调用第二个回调函数。
+
+#### 3.catch()
+
+建议总是使用`catch()`方法，而不使用`then()`方法的第二个参数。
+
+```js
+promise
+  .then(function(data) { //cb
+    // success
+  })
+  .catch(function(err) {
+    // error
+  });
+```
+
+#### 4.finally()
+
+`finally()`方法用于指定不管 Promise 对象最后状态如何，都会执行的操作
+
+```js
+promise
+.then(result => {···})
+.catch(error => {···})
+.finally(() => {···});
+```
+
+
+
+
+
+#### 几种用法场景:
+
+##### 1.用于一次执行所有的异步任务
+
+但是各任务没有关联，且不能互相传递产参数
+
+这个用于，同时发送多个请求，并且等到多个请求完成响应并拿到响应内容时候才会一起返回
+
+`Promise.all()`
+
+（1）只有`a`、`b`、`c`的状态都变成`fulfilled`，`Promise`的状态才会变成`fulfilled`，此时`a`、`b`、`c`的返回值组成一个数组，传递给`Promise`的回调函数。
+
+（2）只要`a`、`b`、`c`中有一个被`rejected`，`Promise`的状态就变成`rejected`，此时第一个被`reject`的实例的返回值，会传递给`Promise`的回调函数。
+
+```js
+let a = function () {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(1);
+            let a = "a";
+        }, 2000);
+        resolve(a);
+    });
+};
+
+let b = function () {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(2);
+            let b = "b";
+        }, 2000);
+        resolve(b);
+    });
+};
+
+let c = function () {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(3);
+            let c = "c";
+        }, 2000);
+        resolve(c);
+    });
+};
+
+Promise.all([b(), a(), c()]).then((res) => {
+    console.log(res);
+});
+
+```
+
+##### 2.y用于顺序执行异步任务
+
+且可以传递数据,坏处是写了一对promise对象
+
+如果在promise中将**新的promise **return 出来，新的就会替代旧的promise
+
+```js
+new Promise((resolve, reject) => {
+    //异步1
+    setTimeout(() => {
+        console.log(1);
+        let data = {
+            a: "a",
+        };
+        resolve(data);
+    }, 2000);
+})
+    .then((data) => {
+    //此为异步1的then
+        //data拿到第一个异步的数据a
+        return new Promise((resolve, reject) => {
+            //异步2
+            setTimeout(() => {
+                console.log(2);
+                //整合之前的数据
+                data = {
+                    ...data,
+                    b: "b",
+                };
+                resolve(data);
+            }, 2000);
+        });
+    })
+    .then((data) => {
+    //此为异步2的then
+        //data拿到第二个异步处理合并后的数据
+        return new Promise((resolve, reject) => {
+            //异步3
+            setTimeout(() => {
+                console.log(3);
+                data = {
+                    ...data,
+                    c: "c",
+                };
+                resolve(data);
+            }, 2000);
+        });
+    })
+    .then((data) => {
+    //此为异步3的then
+    //异步4
+        setTimeout(() => {
+            console.log(data);
+        }, 2000);
+    });
+
+```
+
+
+
+
+
+##### 3.async await
+
+async返回一个promise对象
+
+await接受一个promise对象的resolve结果，他的返回值保存在变量中，
+
+且可以赋值给下一个异步任务
+
+```js
+let a = function () {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(1);
+            let a = "a";
+            resolve({
+                a,
+            });
+        }, 2000);
+    });
+};
+
+let b = function (data) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(2);
+            let b = "b";
+            resolve({
+                ...data,
+                b,
+            });
+        }, 2000);
+    });
+};
+
+let c = function (data) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(3);
+            let c = "c";
+            resolve({
+                ...data,
+                c,
+            });
+        }, 2000);
+    });
+};
+
+async function foo() {
+    let step1 = await a();
+    console.log(step1);
+    let step2 = await b(step1);
+    console.log(step2);
+    let step3 = await c(step2);
+    console.log(step3);
+}
+foo();
+
+```
+
+实例：
+
+```js
+<script>
+    function sendAjax(url) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("get", url);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    resolve(xhr.response);
+                } else {
+                    reject(xhr.status);
+                }
+            }
+        };
+    });
+}
+
+async function foo() {
+    let res = await sendAjax("http://123.207.32.32:8000/home/multidata");
+    console.log(res);
+}
+foo();
+</script>
+```
+
