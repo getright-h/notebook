@@ -16,3 +16,28 @@
 
 2. 
 
+下面给大家介绍一种方法可以快速删除node_modules，让你彻底告别这个苦恼。。。
+
+```undefined
+npm install rimraf -g
+rimraf node_modules
+```
+
+或者
+
+```undefined
+rmdir /s/q node_modules
+```
+
+删除文件
+
+```python
+del filename
+```
+
+清除node_modules缓存
+
+```undefined
+npm cache clean
+```
+
