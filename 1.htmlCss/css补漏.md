@@ -1,4 +1,4 @@
-#### 0.小点
+0.小点
 
 1. `outline` l轮廓线
 
@@ -70,7 +70,7 @@
 
     
 
-  - ![img](C:\Users\Administrator\Desktop\md\new\1.htmlCss\images\5617133-9f618ba8e4792fff.webp)
+  - ![img](assets/5617133-9f618ba8e4792fff.webp)
 
 - 空块元素
 
@@ -94,7 +94,7 @@
 
 1. `vertical: top/bottom`（内联）元素的顶边和行内最高元素的顶边对齐
 
-   ![img](C:\Users\Administrator\Desktop\md\new\1.htmlCss\images\3473978-bbb3abc6c77942d3.webp)
+   ![3473978-bbb3abc6c77942d3](assets/3473978-bbb3abc6c77942d3.webp)
 
    ```html
    <div style="background: #398dee;padding-top:20px">
@@ -106,7 +106,7 @@
 
 2. text-top：元素顶边和父级的内容区域顶边对齐
 
-   ![img](C:\Users\Administrator\Desktop\md\new\1.htmlCss\images\3473978-02901cfd72124920.webp)
+   ![3473978-02901cfd72124920](assets/3473978-02901cfd72124920.webp)
 
    ```xml
    <div style="background: #398dee; padding-top: 20px">
@@ -119,7 +119,7 @@
 
 浮动float的本意：让文字像流水一样环绕图片
 
-![img](C:\Users\Administrator\Desktop\md\new\1.htmlCss\images\1959053-dad6d5b856f3df0f.webp)
+![img](assets/1959053-be8e95926b12dab5.webp)
 
 **浮动闭合（清除浮动）**
 
@@ -150,7 +150,7 @@
 
 #### 4.二维动画
 
-1. `transform`变形动画
+1. `transform`变形动画 (让元素变成什么样子)
 
    1. `transform-origin:(left,bottom)`基点
    2. `transform:rotae(n deg)`旋转
@@ -158,7 +158,9 @@
    4. `：translate(x,y)`平移
    5. `:skew(x deg,y deg)` 扭曲
 
-2. `transition`过渡动画
+2. `transition`过渡动画 (元素变化的过程)
+
+   一般配合 `:hover`
 
    **谁做过渡给谁加**
 
@@ -169,6 +171,26 @@
    2. transition-duration（变换延续的时间）
    3. transition-timing-function（变换的速率）
    4. transition-delay（变换的延时）
+
+   ```html
+   <style>
+       .box {
+           width: 100px;
+           height: 100px;
+           background: #bfa;
+   
+           transition: transform 1s;
+       }
+       .box:hover {
+           transform: translate(100px, 200px);
+       }
+   </style>
+   <body>
+       <div class="box"></div>
+   </body>
+   ```
+
+   
 
 3. `animation`帧动画
 
@@ -284,14 +306,7 @@
 
 #### 8.iframe
 
-`<iframe name='main'></iframe>`视窗
 
-通过`targe`指引
-
-```html
-<li target='main'></li>
-<li target='xx'>2</li>
-```
 
 #### 9.BFC
 
@@ -303,14 +318,14 @@ BFC就是页面上的一个隔离的独立容器，容器里面的子元素不�
 
    1. BFC的区域不会与浮动的元素区域重叠。
 
-      ![img](C:\Users\Administrator\Desktop\md\new\1.htmlCss\images\Image [2].png)
+      ![Image [2]](assets/Image [2].png)
 
       ```html
       <div class="left"></div>
       <div class="right"></div>
       ```
 
-      
+      制作两栏布局 右边自适应宽度
 
       ```css
       .left {
@@ -330,7 +345,7 @@ BFC就是页面上的一个隔离的独立容器，容器里面的子元素不�
 
    2. 清除左盒子浮动后，后面盒子出现的文字环绕
 
-2. 绝对定位元素（元素的 [`position`](https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FCSS%2Fposition) 为 `absolute` 或 `fixed`）
+2. 绝对定位元素（元素的 `position`为 `absolute` 或 `fixed`）
 
 3. display:inline-block，display:table-cell，display:flex，display:inline-flex
 
@@ -352,7 +367,7 @@ div{
 
 top是个阈值，在未到达top值前，元素的postion为`relative`；达到top后，position为`fiexd`
 
-![sticky-top-off](C:\Users\Administrator\Desktop\md\new\1.htmlCss\images\7dabb642-f3a7-11e6-8eba-e48cc56642dc.gif)
+![7dabb642-f3a7-11e6-8eba-e48cc56642dc](assets/7dabb642-f3a7-11e6-8eba-e48cc56642dc.gif)
 
 
 
@@ -366,9 +381,11 @@ border-image:{
 }
 ```
 
-![九宫格代表图gif演示](C:\Users\Administrator\Desktop\md\new\1.htmlCss\images\jiugong.gif)
+![jiugong](assets/jiugong-1661655702123.gif)
 
 - 橙色四角是固定的，每个黄色的方形对应裁剪宽度的四个方向，先缩放至`border-width`的宽度大小，再执行重复性属性
+
+  即，裁剪宽度 === 元素边框宽度
 
   ```css
   html {
@@ -399,6 +416,10 @@ border-image:{
 
 
 #### 14 img+css 图片底部空白
+
+![1661657003051](assets/1661657003051.png)
+
+
 
 原因：图片底部默认和文字的基线对齐，所以会有空白间隙
 
