@@ -1,4 +1,4 @@
-#### 1.函数参数默认值
+#### 函数参数默认值
 
 ```js
 function connet({ host = "127.0.0.1", username, password, port }) {

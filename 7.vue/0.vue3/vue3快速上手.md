@@ -344,6 +344,24 @@ npm run dev
 
 - 扩展：```toRefs``` 与```toRef```功能一致，但可以批量创建多个 ref 对象，语法：```toRefs(person)```
 
+```js
+      //这里不能这样赋值，这样是把person对象中的值，赋给了一个新变量，对这个新变量的更改不会引起person中属性的变化
+      name: person.name,
+      age: person.age,
+      salary: person.job.salary
+
+      //toRef toRefs 只能重新指定变量对象的第一层，
+      //提供了toRef(ojb,'property') 这样相当于把person中某个属性的引用地址，赋给了新变量，新变量的更改会引起person中属性的变化
+      name: toRef(person, 'name'),
+      age: toRef(person, 'age'),
+      salary: toRef(person.job, 'salary'),
+
+      //提供了修改多个属性的方法 toRefs(obj) 但是这个方法返回的是一个对象，这个需要展开
+      ...toRefs(person)
+```
+
+
+
 
 # 三、其它 Composition API
 

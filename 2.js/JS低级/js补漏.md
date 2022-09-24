@@ -6,11 +6,11 @@
 
    ```js
    sessionStorage.setItem("isLogin", true);
-                   let isLogin =
-                       sessionStorage.getItem("isLogin") ===
-                       "true"
-                           ? Boolean(true)
-                           : Boolean(false);
+   let isLogin =
+       sessionStorage.getItem("isLogin") ===
+       "true"
+   ? Boolean(true)
+   : Boolean(false);
    ```
 
    或者，先`JSON.stringify()`存储为json字符串，然后再`JSON.parse()`转换回来
@@ -62,33 +62,32 @@
 
 16. `className += ' x'`在新类名前加空格，可用累加之前的样式
 
-17. `addEventListener`绑定带参数的函数
+17. `addEventListener`绑定带参数的函数 通过bind绑定本身的this，且携带参数(bind不会立即执行，而是发怒函数调用)
 
     ```js
-    btn.addEventListener(
-                    "click",
-                    function () {
-                        addClass(div, "a2");
-                    }
-                );
+    const btn = document.querySelector('#btn')
+    function fn(n) {
+        console.log(this)
+        console.log(n)
+    }
+    btn.addEventListener('click', fn.bind(btn, 1))
+    
     ```
 
 18. `arr.includes(n)`数组arr是否包含n
 
 19. `getElement`获取动态节点(动态添加的)，`querySelector`获取静态节点
 
-20. `n = n || 10` n被强行转为布尔值，如果为true，就把n赋值给n,不是的话就赋值10
+20. `for (k of xx)` 循环遍历任何数据类型的 获取键值(对象除外)
 
-21. `for (k of xx)` 循环遍历任何数据类型的 获取键值(对象除外)
+21. `for(k in xx)` 循环遍历对象，只能获取键名
 
-22. `for(k in xx)` 循环遍历对象，只能获取键名
-
-23. 存储
+22. 存储
 
     1. `localStorage` 存活时间是永久
     2. `sessionStorage` 存活时间是浏览器当前标签
 
-24. 解决 vscode 注释失效 
+23. 解决 vscode 注释失效 
 
     ```js
     //#region
@@ -96,7 +95,7 @@
     //#endregion   
     ```
 
-25. `sort()`排序
+24. `sort()`排序
 
     ```js
     arr.sort((a,b) => {
@@ -105,7 +104,7 @@
     })
     ```
 
-26. 对象中的函数名简写
+25. 对象中的函数名简写
 
     当作为属性的函数名，名称为驼峰写法时，应该用 '' 包裹，因为属性名本来就是一个字符串，平时只是简写
 
@@ -121,22 +120,22 @@
     }
     ```
 
-27. call apply bind 都是改变函数执行时的作用域，区别如下
+26. call apply bind 都是改变函数执行时的作用域，区别如下
 
     1. call bind 接收第二个值是参数项，apply是数组
     2. call apply是立即执行，bind是返回一个函数调用，可以用一个变量接收，以后再用
 
-28. 字符串
+27. 字符串
 
     1. str.startWith('字符') 		
     2. str.endWith('字符')
     3. includes('字符串') 返回boolean
 
-29. 重复字符串
+28. 重复字符串
 
     str.repeat(重复几次)
 
-30. 补充字符串
+29. 补充字符串
 
     str.padStart(最大长度,'补充的字符')
 
@@ -146,7 +145,7 @@
     //Jalex
     ```
 
-31. 全能的数据类型检测
+30. 全能的数据类型检测
 
     Object.prototype.toString.call()
 

@@ -87,55 +87,6 @@ http({
 
 
 
-### 6.elem-ui表格需求一个数组类型的参数传入，
-
-若后端的数据是obj类型，就需要自己转换
-
-
-
-### 7.修改数据的结构
-
-这里是获取对象中，属性为数组的每一项下属的对象
-
-```js
-const foo = {
-    msg: "success",
-    ordermsg: [
-        {
-            money: 60,
-            pmode: "余额",
-            balance: 2000,
-            status: 1,
-            order_num: "JF2020081900098",
-            time: "2019-08-15 14:02:26",
-            remark: "大大哈哈哈大",
-        },
-    ],
-    code: 200,
-    patientmsg: [
-        {
-            name: "王敏",
-            medcard_card: "5000909000",
-            type: "身份证号",
-            id_card: "1111111",
-            nickname: "小雨真可爱",
-            phone: "13183908661",
-            address: "国信安",
-            pic_url: "头像地址",
-        },
-    ],
-};
-let bar = {
-    ordermsg: { ...foo.ordermsg[0] },
-    patientmsg: { ...foo.patientmsg[0] },
-};
-console.dir(bar);
-```
-
-![1654595566431](assets/1654595566431.png)
-
-**修改后：**
-
 ### 8.赋值变量是一个三段式，
 
 而在VUE的渲染机制中，异步数据先显示初始数据，后面再接着显示连带的数据。
@@ -219,12 +170,6 @@ console.dir(bar);
   ![1654608956238](assets/1654608956238.png)
 
   正确的应该是后面那种，把信息放在data中的那种
-
-7. 
-
-  
-
-
 
 
 
