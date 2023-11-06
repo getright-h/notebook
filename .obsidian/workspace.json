@@ -1,0 +1,164 @@
+{
+  "main": {
+    "id": "6847d12230fdd639",
+    "type": "split",
+    "children": [
+      {
+        "id": "b2178ce2b7969010",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "afa5ba23b9c7dab8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1.htmlCss/css补漏.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3e33e55160be61fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "98e6d152981efb2b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4c35d4ee73fd71f3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fb471cff0479482b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3d1651f60a2872a7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "15309dba13eec1d0",
+    "type": "split",
+    "children": [
+      {
+        "id": "063865e5486187b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b95cb65539f75586",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "1.htmlCss/css补漏.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7f52f21837c8da7e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "1.htmlCss/css补漏.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a1594b6bfd46b03a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "0100705aab5ecb10",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "1.htmlCss/css补漏.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "afa5ba23b9c7dab8",
+  "lastOpenFiles": [
+    "1.htmlCss/assets/a1661657003051.png",
+    "1.htmlCss/css补漏.md",
+    "1.htmlCss/less.md",
+    "1.htmlCss/html补漏.md",
+    "7.vue/0.vue3/vue3快速上手.md",
+    "7.vue/1.基础/2.methods_computed.md",
+    "7.vue/1.基础/1.初识vue.md",
+    "7.vue/git使用.md",
+    "7.vue/pro_vue2.md",
+    "7.vue/issue_rdz.md",
+    "7.vue/Vue 面试题.md",
+    "7.vue/UI组件库.md"
+  ]
+}
