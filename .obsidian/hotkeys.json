@@ -22,5 +22,13 @@
       ],
       "key": "ArrowLeft"
     }
+  ],
+  "obsidian-git:commit-specified-message": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "ArrowUp"
+    }
   ]
 }

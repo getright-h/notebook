@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b2178ce2b7969010",
+        "id": "e4b9f6387890313c",
         "type": "tabs",
         "children": [
           {
-            "id": "afa5ba23b9c7dab8",
+            "id": "dcf3e241bfedb9bd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1.htmlCss/css补漏.md",
+                "file": "2.js/JS低级/6.DOM.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1.htmlCss/css补漏.md",
+                "file": "2.js/JS低级/6.DOM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,9 +102,9 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1.htmlCss/css补漏.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
+                "file": "2.js/JS低级/6.DOM.md",
+                "linksCollapsed": true,
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1.htmlCss/css补漏.md"
+                "file": "2.js/JS低级/6.DOM.md"
               }
             }
           }
@@ -146,12 +146,24 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "afa5ba23b9c7dab8",
+  "active": "dcf3e241bfedb9bd",
   "lastOpenFiles": [
-    "1.htmlCss/assets/a1661657003051.png",
-    "1.htmlCss/css补漏.md",
-    "1.htmlCss/less.md",
+    "2.js/JS低级/6.DOM.assets/a1648281092726.png",
+    "2.js/JS低级/6.DOM.md",
+    "2.js/JS低级/6.DOM.assets/a1648280999613.png",
+    "2.js/JS低级/5.正则.md",
+    "2.js/JS低级/4.字符类型.md",
+    "2.js/JS低级/3.包装类型.md",
+    "2.js/JS低级/2.数组.md",
+    "2.js/JS低级/1.函数.md",
+    "2.js/JS低级/assets/a1248022-20171003145117021-1708327412.png",
+    "2.js/JS低级/assets/a1655361702669.png",
+    "2.js/JS低级/assets/a.png",
+    "2.js/生成tree结构.md",
     "1.htmlCss/html补漏.md",
+    "1.htmlCss/css补漏.md",
+    "1.htmlCss/assets/a1661657003051.png",
+    "1.htmlCss/less.md",
     "7.vue/0.vue3/vue3快速上手.md",
     "7.vue/1.基础/2.methods_computed.md",
     "7.vue/1.基础/1.初识vue.md",
